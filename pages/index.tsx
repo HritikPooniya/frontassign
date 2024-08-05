@@ -2,7 +2,7 @@ import React from "react";
 // import { useEffect, useState } from 'react';
 
 import Styles from "@/styles/semi.module.css";
-import styles from '@/styles/Animation.module.css';
+import styles from '@/styles/animation.module.css';
 
 
 const index = () => {
