@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 
 import Styles from "@/styles/semi.module.css";
 import styles from '@/styles/Animation.module.css';
@@ -20,17 +20,17 @@ const index = () => {
   //   "/assets/carousel.png",
   // ];
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [img,setImg] = useState('/assets/arjit.jpeg');
+  // const [currentIndex, setCurrentIndex] = useState(0);
+  // const [img,setImg] = useState('/assets/arjit.jpeg');
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 1500); // Change image every 1.5 seconds
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+  //   }, 1500); // Change image every 1.5 seconds
 
-    // Clean up the interval on component unmount
-    return () => clearInterval(interval);
-  }, [images.length]);
+  //   // Clean up the interval on component unmount
+  //   return () => clearInterval(interval);
+  // }, [images.length]);
   return (
     <>
       <div
@@ -45,7 +45,7 @@ const index = () => {
       >
         <h3>Singers</h3>
         <div className={styles.imageContainer}>
-    <img src={images[currentIndex]} alt={`Image  not found`} />
+    <img src={images[0]} alt={`Image  not found`} />
     <div className={styles.loader}></div>
   </div>
         <h4 className="ms-5">
