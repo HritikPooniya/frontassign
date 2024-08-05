@@ -1,6 +1,9 @@
 import React from "react";
+import { useEffect, useState } from 'react';
+
 import Styles from "@/styles/semi.module.css";
-import ImageLoader from "@/components/imageLoader";
+import styles from '@/styles/Animation.module.css';
+
 
 const index = () => {
   const images = [
@@ -16,6 +19,18 @@ const index = () => {
   //   "/assets/carousel.png",
   //   "/assets/carousel.png",
   // ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [img,setImg] = useState('/assets/arjit.jpeg');
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 1500); // Change image every 1.5 seconds
+
+    // Clean up the interval on component unmount
+    return () => clearInterval(interval);
+  }, [images.length]);
   return (
     <>
       <div
@@ -29,7 +44,10 @@ const index = () => {
         }}
       >
         <h3>Singers</h3>
-        <ImageLoader images={images} />
+        <div className={styles.imageContainer}>
+    <img src={images[currentIndex]} alt={`Image  not found`} />
+    <div className={styles.loader}></div>
+  </div>
         <h4 className="ms-5">
           <span className="text-dark">
             Choose <br /> from
